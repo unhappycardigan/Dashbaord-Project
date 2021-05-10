@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: white;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+
+}
+.modal ul{
+	  list-style-type:none;
+}
+
+/* The Close Button */
+.close, .closeName{
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus, .closeName:hover, .closeName:focus{
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.container{
+	position: relative;
+	flex: 50%;
+	padding: 50px;
+}
+.container ul{
+	list-style-type:none;
+	padding: 20px;
+}
+.container li{
+	display: none;
+	display:inline-block;
+	margin-left:auto;
+	margin-right:auto;
+	width:50%;
+	padding: 20px;
+}
+
+.row{
+	display:flex;
+}
+
+.placeholder{
+	position: absolute:right;
+	top: 100px;
+	right: 10px;
+	margin-bottom: 630px;
+}
+
+.menu{
+	overflow: hidden;
+	background-color:#456790;
+	border: 3px solid black;
+}
+.menu a{
+	float: left;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration:none;
+}
+.menu a:hover{
+	background-color: #262e52;
+	color: white;
+}
+.menu a.active{
+	background-color:#262e52;
+}
+.tab{
+	overflow: hidden;
+	border: 3px solid black;
+	background-color: #456790;
+}
+.tab div{
+	display: none;
+	background-color: #456790;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+	color: white;
+}
+.tab div:hover{
+	background-color: #262e52;;
+	color: white
+}
+.tab div.active{
+	background-color: #262e52;
+}
+.tabcontent{
+	display: none;
+	padding: 6px 12px;
+	background-color: #456790;
+}
+.tabcontent.active{
+	display:block;
+}
+.container img{
+	display: none;
+}
+
+.messagepop {
+  background-color:#FFFFFF;
+  border:1px solid #999999;
+  cursor:default;
+  display:none;
+  margin-top: 15px;
+  position:absolute;
+  text-align:left;
+  width:394px;
+  z-index:50;
+  padding: 25px 25px 20px;
+}
+label {
+  display: block;
+  margin-bottom: 3px;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+</style>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+<body>
+
+	<h1>Interactive Dashboard for Student Teacher Institiution Users</h1>
+	<div class="menu">
+		<a>Home</a>
+		<a id="deleteGraph">Delete Graph</a>
+		<a id="deleteTab">Delete Tab</a>
+		<!--<a id="renameTab">Rename Tab</a>
+		<a id="renameGraph">Rename Graph</a>-->
+		<a>+</a>
+	</div>  
+	<div class="tab">
+		<div id="tab_page1" class="tablinks active" onclick="openPage(event, 'Page1')"><a>Home</a></div>
+		<div id="tab_page2" class="tablinks" onclick="openPage(event, 'Page2')"><a>Page 2</a></div>
+		<div id="tab_page3" class="tablinks" onclick="openPage(event, 'Page3')"><a>Page 3</a></div>
+		<div id="tab_page4" class="tablinks" onclick="openPage(event, 'Page4')"><a>Page 4</a></div>
+		<div id="tab_page5" class="tablinks" onclick="openPage(event, 'Page5')"><a>Page 5</a></div>
+		<div id="tab_pageadd" class="tablinks" onclick="openPage(event, 'Page+')"><a>+</a></div>
+	</div>
+	<div id="Page1" class="tabcontent active">
+		<div class="row">
+			<div class="container">
+				<img  id="myGraph1_1" src="graphPlaceholder.png" width="700" height="700" ></img>
+				<img src="graphMenu.png" id="myBtn1_1" width="70" height="70" class="placeholder"/>
+			</div>
+			<div class="container">
+				<img  id="myGraph1_2" src="graphPlaceholder.png" width="700" height="700" ></img>
+				<img src="graphMenu.png" id="myBtn1_2" width="70" height="70" class="placeholder"/>
+			</div>
+		</div>
+	</div>
+	<div id="Page2" class="tabcontent">
+		<div class="row">
+			<div class="container">
+				<img  id="myGraph2_1" src="graphPlaceholder.png" width="700" height="700" ></img>
+				<img src="graphMenu.png" id="myBtn2_1" width="70" height="70" class="placeholder"/>
+			</div>
+			<div class="container">
+				<img  id="myGraph2_2" src="graphPlaceholder.png" width="700" height="700" ></img>
+				<img src="graphMenu.png" id="myBtn2_2" width="70" height="70" class="placeholder"/>
+			</div>
+		</div>
+	</div>
+
+	<div id="Page3" class="tabcontent">
+		<div class="row">
+			<div class="container">
+				<img  id="myGraph3_1" src="graphPlaceholder.png" width="700" height="700" ></img>
+				<img src="graphMenu.png" id="myBtn3_1" width="70" height="70" class="placeholder"/>
+			</div>
+			<div class="container">
+				<img  id="myGraph3_2" src="graphPlaceholder.png" width="700" height="700" ></img>
+				<img src="graphMenu.png" id="myBtn3_2" width="70" height="70" class="placeholder"/>
+			</div>
+		</div>
+	</div>
+	
+	<div id="Page4" class="tabcontent">
+		<div class="row">
+			<div class="container">
+				<img  id="myGraph4_1" src="graphPlaceholder.png" width="700" height="700" ></img>
+				<img src="graphMenu.png" id="myBtn4_1" width="70" height="70" class="placeholder"/>
+			</div>
+			<div class="container">
+				<img  id="myGraph4_2" src="graphPlaceholder.png" width="700" height="700" ></img>
+				<img src="graphMenu.png" id="myBtn4_2" width="70" height="70" class="placeholder"/>
+			</div>
+		</div>
+	</div>
+	
+	<div id="Page5" class="tabcontent">
+		<div class="row">
+			<div class="container">
+				<img  id="myGraph5_1" src="graphPlaceholder.png" width="700" height="700" ></img>
+				<img src="graphMenu.png" id="myBtn5_1" width="70" height="70" class="placeholder"/>
+			</div>
+			<div class="container">
+				<img  id="myGraph5_2" src="graphPlaceholder.png" width="700" height="700" ></img>
+				<img src="graphMenu.png" id="myBtn5_2" width="70" height="70" class="placeholder"/>
+			</div>
+		</div>
+	</div>
+	
+	<div id="myModal" class="modal">
+		<div class="modal-content">
+			<span id="close" class="close">&times;</span>
+			<ul>
+				<li><img id='bar' src="https://cdn.kastatic.org/ka-perseus-graphie/6fc87b09f1fd082b8939b6425bef6a1d5397e532.svg" onclick="bar();"/></li>
+				<li><img id='pie' src="https://chartio.com/assets/25c0ab/tutorials/charts/pie-charts/8f2915ab9024902155c5d27d430831be813de071853c69d778102722a4d0efbf/pie-chart-example-1.png" onclick="pie();"/></li>
+				<li><img id='donut' src="donut.png" onclick="donut();"/></li>
+			</ul>
+		</div>
+	</div>
+	
+	<div id="name" class="modal">
+		<div class="modal-content">
+			<span id="closeName" class="close">&times;</span>
+			<label for="name"><b>Name</b></label>
+			<input type="text" placeholder="Name" id="tabName" value="New Tab">
+			<button type="submit" class="btn" id='enter'>Enter</button>
+		</div>
+	</div>
+	
+	<div id="confirm" class="modal">
+		<div class="modal-content">
+			<span id="closeConfirm" class="close">&times;</span>
+			<label for="confirm"><b>*This is where the name will go*</b></label>
+			<input type="text" placeholder="Name" id="graphName">
+			<button class="btn" id="confirmYes">Yes</button>
+			<button class="btn" id="confirmNo">No</button>
+		</div>
+	</div>
+	
+
+<script src="jquery.js"></script>
+<script src="homeTravis.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,175 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: white;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+
+}
+.modal ul{
+	  list-style-type:none;
+}
+
+/* The Close Button */
+.close, .closeName{
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover, .close:focus, .closeName:hover, .closeName:focus{
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.page{
+	width:100%;
+}
+
+.container{
+	position: relative;
+	flex: 50%;
+	padding: 50px;
+}
+.container ul{
+	list-style-type:none;
+	padding: 20px;
+}
+.container li{
+	display:inline-block;
+	margin-left:auto;
+	margin-right:auto;
+	width:50%;
+	padding: 20px;
+}
+
+.row{
+	display:flex;
+}
+
+.menu{
+	overflow: hidden;
+	background-color:#456790;
+	border: 3px solid black;
+}
+.menu a{
+	float: left;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration:none;
+}
+.menu a:hover{
+	background-color: #262e52;
+	color: white;
+}
+.menu a.active{
+	background-color:#262e52;
+}
+.tab{
+	overflow: hidden;
+	border: 3px solid black;
+	background-color: #456790;
+}
+.tab a{
+	background-color: #456790;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
+	font-size: 17px;
+	color: white;
+}
+.tab a:hover{
+	background-color: #262e52;;
+	color: white
+}
+.tab a.active{
+	background-color: #262e52;
+}
+.tabcontent{
+	display: none;
+	/* padding: 6px 12px; */
+	background-color: #456790;
+}
+.tabcontent.active{
+	display:block;
+}
+
+.messagepop {
+  background-color:#FFFFFF;
+  border:1px solid #999999;
+  cursor:default;
+  display:none;
+  margin-top: 15px;
+  position:absolute;
+  text-align:left;
+  width:394px;
+  z-index:50;
+  padding: 25px 25px 20px;
+}
+label {
+  display: block;
+  margin-bottom: 3px;
+  padding-left: 15px;
+  text-indent: -15px;
+}
+
+.flexContainer{
+	padding-top:20px;
+	padding-bottom:100px;
+	display:flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	flex-direction: row;
+}
+.flexItem{
+	flex:0 1 46%;
+	padding-bottom:50px
+}
+
+.img{
+	max-width:100%;
+	height:auto;
+}
+
+.addGraph{
+	max-width:74%;
+	display:inline-block;
+}
+.verticalEllipsis{
+	max-width:24%;
+	display:inline-block;
+	vertical-align: top;
+}
+
+.plusButton{
+	max-width:50%;
+	display:inline-block;
+	vertical-align: top;
+}
